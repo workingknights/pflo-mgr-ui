@@ -1,1 +1,2 @@
 /api/*  https://pflo-mgr.herokuapp.com/api/:splat  200
+api/*   https://pflo-mgr.herokuapp.com/api/:splat  200
