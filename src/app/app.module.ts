@@ -3,7 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 
-import { Angular2DataTableModule } from 'angular2-data-table';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -43,7 +43,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 		HttpModule,
 		FormsModule,
 		AppRoutingModule,
-		Angular2DataTableModule
+		NgxDatatableModule
 	],
   declarations: [
     AppComponent,

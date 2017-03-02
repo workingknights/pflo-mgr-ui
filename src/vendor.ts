@@ -13,5 +13,5 @@ import 'tether/dist/js/tether.min.js';
 import 'jquery/dist/jquery.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'angular2-data-table/release/datatable.css';
-import 'angular2-data-table/release/material.css';
+import '@swimlane/ngx-datatable/release/index.css';
+import '@swimlane/ngx-datatable/release/themes/material.css';
