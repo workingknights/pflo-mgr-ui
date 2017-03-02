@@ -1,0 +1,30 @@
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+.navbar {
+	background-color: #416daf;
+	margin-bottom: 16px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+}
+.navbar form span {
+	color: #fff;
+}
+a.navbar-brand {
+	color: #fff;
+}
+a.nav-link {
+	color: #ccc;
+}
+a.nav-link.active {
+	color: #fff;
+}
+.btn-outline-primary, .btn-outline-primary:hover {
+	border-color: #fff;
+	color: #ccc;
+}
+.btn-outline-primary:hover {
+	background-color: #5680bd;
+	color: #fff;
+}

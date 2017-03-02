@@ -1,0 +1,54 @@
+<div class="container-fluid" *ngIf="auth.authenticated()">
+
+	<div class="mt-sm-4 data-maintainer">
+
+		<div class="row mb-sm-2">
+			<div class="col-sm-2">
+				<button class="btn btn-primary mt-1" (click)="editHolding()" [disabled]="selected.length < 1">Edit Entry</button>
+			</div>
+		</div>
+
+		<div class="row" *ngIf="showHoldingDetailForm">
+			<div class="col-sm-12">
+				<holding-detail-form [holding]="selectedHolding" [editing]="editing" (submitted)="saveHolding($event)"
+					(closed)="showHoldingDetailForm=false; editing=false">
+				</holding-detail-form>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<ngx-datatable class="material"
+					[rows]="holdings"
+					[columnMode]="'flex'"
+					[rowHeight]="'auto'"
+					[selected]="selected"
+					[selectionType]="'single'"
+					(select)='onSelect($event)'>
+					<ngx-datatable-column name="Ticker" prop="ticker.symbol" [flexGrow]="0.7"></ngx-datatable-column>
+					<ngx-datatable-column name="Currency" prop="ticker.currency" [flexGrow]="0.8"></ngx-datatable-column>
+					<ngx-datatable-column prop="tradeDate" [flexGrow]="0.9">
+						<template let-value="value" ngx-datatable-cell-template>
+							{{value | date:'d/MM/y'}}
+						</template>
+					</ngx-datatable-column>
+					<ngx-datatable-column prop="shares" [flexGrow]="0.7"></ngx-datatable-column>
+					<ngx-datatable-column prop="tradePrice" [flexGrow]="0.9"></ngx-datatable-column>
+					<ngx-datatable-column prop="commission" [flexGrow]="0.9"></ngx-datatable-column>
+					<ngx-datatable-column prop="initialMarketValue" [flexGrow]="1.3">
+						<template let-value="value" ngx-datatable-cell-template>
+							{{value.toFixed(2)}}
+						</template>
+					</ngx-datatable-column>
+					<ngx-datatable-column prop="initialMarketValueBase" [flexGrow]="1.6">
+						<template let-value="value" ngx-datatable-cell-template>
+							{{value | currency:'USD':true}}
+						</template>
+					</ngx-datatable-column>
+				</ngx-datatable>
+			</div>
+		</div>
+
+	</div>
+
+</div>

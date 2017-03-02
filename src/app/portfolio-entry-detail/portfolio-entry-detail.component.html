@@ -1,0 +1,87 @@
+<div *ngIf="portfolioEntry" class="portfolio-entry">
+	<div class="row">
+		<div class="col-sm-3 pflo-detail-header">
+			<a href="http://finance.yahoo.com/quote/{{portfolioEntry.ticker}}?ltr=1" target="_blank">{{portfolioEntry.ticker}}</a>
+		</div>
+		<div class="col-sm-9 pflo-detail-header">
+			<label>{{portfolioEntry.name}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 pflo-detail">
+			<span>Total Shares: </span><label>{{portfolioEntry.totalShares}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Market Value (Base): </span><label>{{portfolioEntry.marketValueBase | currency:'USD':true}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Total Gain (Base): </span><label>{{portfolioEntry.totalGainBase | currency:'USD':true}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 pflo-detail">
+			<span>Curr Price: </span><label>{{portfolioEntry.currPrice | number:'1.2-4'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Daily % Change: </span><label>{{portfolioEntry.percentChange | percent:'1.2-2'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Daily Gain (Base): </span><label>{{portfolioEntry.dailyGainBase | currency:'USD':true}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 pflo-detail">
+			<span>Avg Unit Cost: </span><label>{{portfolioEntry.avgUnitCost | number:'1.2-4'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Settle Amount (Issue): </span><label>{{portfolioEntry.totalCost | number:'1.2-2'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Market Value (Issue): </span><label>{{portfolioEntry.marketValue | number:'1.2-2'}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 pflo-detail">
+			<span>Issue Ccy: </span><label>{{portfolioEntry.currency}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Total Gain (Issue): </span><label>{{portfolioEntry.totalGain | number:'1.2-2'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Total % Gain: </span><label>{{portfolioEntry.totalPercentGain | percent:'1.2-2'}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 pflo-detail">
+			<span>50 Day MA: </span><label>{{portfolioEntry.ma50Day | number:'1.2-2'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>200 Day MA: </span><label>{{portfolioEntry.ma200Day | number:'1.2-2'}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<span>Year Low: </span><label>{{portfolioEntry.yearLow | number:'1.2-2'}}</label>
+		</div>
+	<!-- </div>
+	<div class="row"> -->
+		<div class="col-sm-4 pflo-detail">
+			<span>Year High: </span><label>{{portfolioEntry.yearHigh |  number:'1.2-2'}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 pflo-detail">
+			<span>Recommendation: </span><label>{{portfolioEntry.recommendation.direction}}</label>
+		</div>
+		<div class="col-sm-4 pflo-detail">
+			<ul>
+				<li *ngFor="let contributor of portfolioEntry.recommendation.contributors">
+					{{contributor}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-2">
+		<button (click)="goBack()">Back</button>
+	</div>
+</div>

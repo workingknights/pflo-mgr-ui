@@ -1,0 +1,25 @@
+<div class="mt-3 mb-2">
+	<form (ngSubmit)="onSubmit(); modelForm.reset()" #modelForm="ngForm">
+		<div class="row">
+	    <div class="form-group col-sm-2">
+	      <label for="ticker">Ticker</label>
+	      <input type="text" class="form-control" id="ticker" required
+	      [(ngModel)]="modelEntry.ticker" name="ticker" #ticker="ngModel">
+	      <div [hidden]="ticker.valid || ticker.pristine" class="alert alert-danger">
+	        Ticker is required
+	      </div>
+	    </div>
+			<div class="form-group col-sm-2">
+	      <label for="portfolioWeight">Portfolio Weight</label>
+	      <input type="number" min="0" step="any" class="form-control" id="portfolioWeight" required=""
+	      [(ngModel)]="modelEntry.portfolioWeight" name="portfolioWeight">
+	    </div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+	      <button type="submit" class="btn btn-success" [disabled]="!modelForm.form.valid">Submit</button>
+				<button type="button" class="btn btn-secondary" (click)="closeForm()">Close</button>
+			</div>
+		</div>
+	</form>
+</div>

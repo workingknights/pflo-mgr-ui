@@ -1,0 +1,92 @@
+<div class="container-fluid" *ngIf="auth.authenticated()">
+
+	<span class="alert alert-warning" *ngIf="errorMessage">{{errorMessage}}</span>
+
+	<div class="row" *ngIf="summary">
+		<div class=col-sm-4>
+			<ul class="list-group">
+				<li class="list-group-item">
+					Market Value: {{summary.marketValueBase | currency:'USD':true}}
+				</li>
+			</ul>
+		</div>
+		<div class=col-sm-4>
+			<ul class="list-group">
+				<li class="list-group-item" [ngClass]="{greenCell: summary.dailyGainBase > 0, redCell: summary.dailyGainBase < 0}">
+					Daily Gain: {{summary.dailyGainBase | currency:'USD':true}}
+				</li>
+			</ul>
+		</div>
+		<div class=col-sm-4>
+			<ul class="list-group">
+				<li class="list-group-item" [ngClass]="{greenCell: summary.totalGainBase > 0, redCell: summary.totalGainBase < 0}">
+					Total Gain: {{summary.totalGainBase | currency:'USD':true}}
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row data-maintainer">
+		<div class="col-sm-12">
+			<form class="form-inline float-sm-left">
+				<button class="btn btn-primary btn-margin-top" (click)="showAddHoldingForm=true">Add Holding</button>
+			</form>
+		</div>
+	</div>
+	<div class="row data-maintainer" *ngIf="showAddHoldingForm">
+		<div class="col-sm-12 mt-sm-3">
+				<holding-detail-form [holding]="newHolding" (submitted)="saveHolding($event)" (closed)="showAddHoldingForm=false"></holding-detail-form>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<ngx-datatable
+				[rows]="portfolioEntries"
+				[columnMode]="'flex'"
+				[rowHeight]="'auto'"
+				[scrollbarH]="true"
+				class="material">
+				<ngx-datatable-column prop="ticker" [flexGrow]="0.9">
+					<template let-value="value" ngx-datatable-cell-template>
+						<a [routerLink]="['/portfolioEntry', value]">{{value}}</a>
+					</template>
+				</ngx-datatable-column>
+        <ngx-datatable-column name="Shares" prop="totalShares" [flexGrow]="0.7"></ngx-datatable-column>
+				<ngx-datatable-column name="B/S" prop="recommendation.direction" [flexGrow]="0.7">
+					<template let-value="value" ngx-datatable-cell-template>
+						<span [ngClass]="{greenCell: value === 'BUY', redCell: value === 'SELL'}">{{value}}</span>
+					</template>
+				</ngx-datatable-column>
+        <ngx-datatable-column name="Curr Price" prop="currPrice" [flexGrow]="0.8">
+					<template let-value="value" ngx-datatable-cell-template>
+						<div>{{value | number:'1.2-2'}}</div>
+					</template>
+				</ngx-datatable-column>
+				<ngx-datatable-column name="Total % Gain" prop="totalPercentGain" [flexGrow]="0.9">
+					<template let-value="value" ngx-datatable-cell-template>
+						<div style="text-align:right">
+							<span [ngClass]="{greenCell: value > 0, redCell: value < 0}">{{value | percent:'1.2-2'}}</span>
+						</div>
+					</template>
+				</ngx-datatable-column>
+				<ngx-datatable-column name="% Change" prop="percentChange" [flexGrow]="0.9">
+					<template let-value="value" ngx-datatable-cell-template>
+						<span [ngClass]="{greenCell: value > 0, redCell: value < 0}">{{value | percent:'1.2-2'}}</span>
+					</template>
+				</ngx-datatable-column>
+        <ngx-datatable-column name="Market Val (Base)" prop="marketValueBase" [flexGrow]="1.3" >
+					<template let-value="value" ngx-datatable-cell-template>
+						{{value | currency:'USD':true}}
+					</template>
+				</ngx-datatable-column>
+				<ngx-datatable-column name="Rebal" prop="rebalToModel" [flexGrow]="1.1" >
+					<template let-value="value" ngx-datatable-cell-template>
+						<span [ngClass]="{greenCell: value > 0, redCell: value < 0}">{{value | currency:'USD':true}}</span>
+					</template>
+				</ngx-datatable-column>
+			</ngx-datatable>
+		</div>
+	</div>
+
+</div>

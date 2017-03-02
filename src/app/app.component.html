@@ -1,0 +1,34 @@
+<!-- <div class="container-fluid"> -->
+<nav class="navbar navbar-toggleable-sm">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+		aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar">
+		<a class="navbar-brand" href="/portfolio">Portfolio Manager</a>
+		<ul class="nav navbar-nav mr-auto" *ngIf="auth.authenticated()">
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/holdings" routerLinkActive="active">Holdings</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/tickers" routerLinkActive="active">Tickers</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/model" routerLinkActive="active">Model</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/sandbox" routerLinkActive="active">Sandbox</a>
+			</li>
+		</ul>
+		<form class="form-inline float-sm-right">
+			<span *ngIf="auth.authenticated() && auth.userProfile" class="align-middle" style="margin-right: 15px">{{auth.userProfile.name}}</span>
+			<button class="btn btn-outline-primary" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+			<button class="btn btn-outline-primary" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+		</form>
+	</div>
+</nav>
+<router-outlet></router-outlet>
+<!-- </div> -->

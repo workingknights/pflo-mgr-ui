@@ -1,0 +1,53 @@
+<div class="container-fluid" *ngIf="auth.authenticated()">
+
+	<div class="data-maintainer">
+		<div class="row" *ngIf="!model">
+			<div class="col-sm-4">
+				<span class="mx-auto">No model exists yet</span>
+			</div>
+			<div class="col-sm-8">
+				<form>
+					<button class="btn btn-sm btn-primary btn-margin-top" (click)="createModel()">Create Model</button>
+				</form>
+			</div>
+		</div>
+
+		<div *ngIf="model" class="mt-sm-3">
+			<div class="row align-items-center">
+				<div class="col-sm-2">
+					<button class="btn btn-primary" (click)="showAddEntryForm=true">Add Entry</button>
+				</div>
+				<div class="col-sm-3">
+					<ul class="list-group">
+						<li class="list-group-item" style="height: calc(2rem + 3px)">
+							Total Weight: <strong>{{totalWeight | percent:'1.2-2'}}</strong>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row" *ngIf="showAddEntryForm">
+				<div class="col-sm-12">
+					<app-model-entry-form (submitted)="saveEntry($event)" (closed)="showAddEntryForm=false"></app-model-entry-form>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+					<ngx-datatable class="material"
+						[rows]="model.entries"
+						[columnMode]="'flex'"
+						[rowHeight]="'auto'">
+						<ngx-datatable-column prop="ticker" [flexGrow]="1"></ngx-datatable-column>
+						<ngx-datatable-column prop="portfolioWeight" [flexGrow]="1">
+							<template let-value="value" ngx-datatable-cell-template>
+								{{value | percent:'1.0-2'}}
+							</template>
+						</ngx-datatable-column>
+					</ngx-datatable>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

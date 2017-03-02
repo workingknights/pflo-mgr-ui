@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+	background-color: #fff;
+}
+
+.data-maintainer * {
+	font-size: 0.9rem;
+}
+
+.ngx-datatable {
+	margin-top: 16px;
+}
+
+.ngx-datatable * {
+	font-size: 0.8rem;
+}
+
+.data-maintainer select.form-control {
+	height: calc(2rem + 1px) !important;
+}
+
+.data-maintainer input.form-control {
+	height: calc(2rem + 1px) !important;
+}
+
+.redCell {
+	color: red;
+}
+.greenCell {
+	color: green;
+}
