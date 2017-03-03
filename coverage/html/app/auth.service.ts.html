@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/auth.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> auth.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.35% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.03% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { tokenNotExpired } from 'angular2-jwt';
+&nbsp;
+import { authConfig } from './auth.config';
+// import { environment } from '../environments/environment';
+&nbsp;
+// Avoid name not found warnings
+declare var Auth0Lock: any;
+&nbsp;
+@Injectable()
+export class Auth {
+&nbsp;
+  private lock: any;
+&nbsp;
+  // Store profile object in auth class
+  private userProfile: Object;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  constructor(private <span class="cstat-no" title="statement not covered" >router: Router<span class="fstat-no" title="function not covered" >)</span> {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (process.env.ENV === 'production') {</span>
+      // Configure Auth0
+<span class="cstat-no" title="statement not covered" >      this.lock = new Auth0Lock(authConfig.clientID, authConfig.domain, {});</span>
+&nbsp;
+      // Set userProfile attribute of already saved profile
+<span class="cstat-no" title="statement not covered" >      this.userProfile = JSON.parse(localStorage.getItem('profile'));</span>
+&nbsp;
+      // Add callback for lock `authenticated` event
+<span class="cstat-no" title="statement not covered" >      this.lock.on('authenticated', (authResult: any<span class="fstat-no" title="function not covered" >) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        localStorage.setItem('id_token', authResult.idToken);</span>
+&nbsp;
+        // Fetch profile information
+<span class="cstat-no" title="statement not covered" >        this.lock.getProfile(authResult.idToken, (error: any, profile: any<span class="fstat-no" title="function not covered" >) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (error) {</span>
+<span class="cstat-no" title="statement not covered" >            console.log(error);</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          localStorage.setItem('profile', JSON.stringify(profile));</span>
+<span class="cstat-no" title="statement not covered" >          this.router.navigateByUrl('/portfolio', { skipLocationChange: true });</span>
+<span class="cstat-no" title="statement not covered" >          this.userProfile = profile;</span>
+        });
+<span class="cstat-no" title="statement not covered" >        this.lock.hide();</span>
+      });
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public login() {</span>
+    // Call the show method to display the widget.
+<span class="cstat-no" title="statement not covered" >		if (process.env.ENV === 'production') {</span>
+<span class="cstat-no" title="statement not covered" >      this.lock.show();</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >      localStorage.setItem('id_token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExODMwMDQwODMwMTA3NzYxNTI5MSIsImF1ZCI6IlQySFFVeFNVWFh1dGQxcmlnV3BVdmRFT05rZDVzMWdtIiwiaXNzIjoiaHR0cHM6Ly93b3JraW5na25pZ2h0cy5hdXRoMC5jb20vIiwiZXhwIjoxNTc3ODA0NDAwLCJpYXQiOjE0ODMxOTY0MDB9.WutOBkyCKlPFq3AOKAQaTSJkil97jKOzgNbViTdqrTs');</span>
+    }
+<span class="cstat-no" title="statement not covered" >    console.log('login() called.  authenticated = ' + tokenNotExpired());</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public authenticated() {</span>
+    // Check if there's an unexpired JWT
+    // This searches for an item in localStorage with key == 'id_token'
+<span class="cstat-no" title="statement not covered" >    return tokenNotExpired();</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public logout() {</span>
+    // Remove token from localStorage
+<span class="cstat-no" title="statement not covered" >    localStorage.removeItem('id_token');</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.removeItem('profile');</span>
+<span class="cstat-no" title="statement not covered" >    this.userProfile = undefined;</span>
+&nbsp;
+    // Send the user back to the home page after logout
+<span class="cstat-no" title="statement not covered" >    this.router.navigateByUrl('/');</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Mar 03 2017 10:05:07 GMT+0900 (JST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
